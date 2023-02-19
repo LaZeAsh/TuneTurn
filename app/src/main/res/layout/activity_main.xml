@@ -17,6 +17,13 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/Theme.TuneTurn.PopupOverlay" />
+        <TextView
+            android:id="@+id/tv_toolbar_custom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:text="TuneTurn"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
