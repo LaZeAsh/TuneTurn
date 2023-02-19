@@ -11,8 +11,7 @@ mp_drawing = mp.solutions.drawing_utils
 
 drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1)
 
-
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 
 # keep track of the time the user makes the turn (used in line 123)
 last_turn = datetime.now()
