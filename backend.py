@@ -1,11 +1,18 @@
 from flask import Flask, jsonify, request
 import pyautogui
 import time
+
 import librosa
 import numpy as np
 import scipy.signal as signal
 
+from flask_cors import CORS
+
+
 app = Flask(__name__)
+cors = CORS(app)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
+
 
 @app.route('/action/<string:left_or_right>', methods=['GET'])
 def action(left_or_right):
