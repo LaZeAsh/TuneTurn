@@ -3,6 +3,7 @@ import mediapipe as mp
 import numpy as np
 import time
 from datetime import datetime, timedelta
+import pyautogui
 
 mp_face_mesh = mp.solutions.face_mesh
 face_mesh = mp_face_mesh.FaceMesh(min_detection_confidence=0.5, min_tracking_confidence=0.5)
@@ -11,7 +12,8 @@ mp_drawing = mp.solutions.drawing_utils
 
 drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1)
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(2)
+time.sleep(1)
 
 # keep track of the time the user makes the turn (used in line 123)
 last_turn = datetime.now()
@@ -92,8 +94,12 @@ while cap.isOpened():
             # See where the user's head tilting
             if y < -10:
                 text = "Looking Left"
-            elif y > 10:
+                pyautogui.press("left")
+                time.sleep(1)
+            elif y > 5:
                 text = "Looking Right"
+                pyautogui.press("right")
+                time.sleep(1)
             elif x < -10:
                 text = "Looking Down"
             elif x > 10:
